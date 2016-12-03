@@ -25,10 +25,10 @@ public class Upgrade implements Drawable{
 	@Override
 	public void draw(Graphics g, Panel p) {
 		if(bought){
-			g.drawImage(image, loc.x, loc.y, p);
+			g.drawImage(imageGS, loc.x, loc.y, p);
 		}
 		else{
-			g.drawImage(imageGS, loc.x, loc.y, p);
+			g.drawImage(image, loc.x, loc.y, p);
 		}
 		
 	}

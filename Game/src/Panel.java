@@ -39,23 +39,23 @@ public class Panel extends JPanel implements KeyListener, MouseListener, Runnabl
 		ai = new AI();
 		
 		try {
-			achievements.add(new Achievement(ImageIO.read(new File("test_achievement.png")), new Point(440, 85)));
-			achievements.add(new Achievement(ImageIO.read(new File("test_achievement.png")), new Point(440, 220)));
-			achievements.add(new Achievement(ImageIO.read(new File("test_achievement.png")), new Point(440, 355)));
-			achievements.add(new Achievement(ImageIO.read(new File("test_achievement.png")), new Point(440, 490)));
-			achievements.add(new Achievement(ImageIO.read(new File("test_achievement.png")), new Point(440, 625)));
-			achievements.add(new Achievement(ImageIO.read(new File("test_achievement.png")), new Point(720, 85)));
-			achievements.add(new Achievement(ImageIO.read(new File("test_achievement.png")), new Point(720, 220)));
-			achievements.add(new Achievement(ImageIO.read(new File("test_achievement.png")), new Point(720, 355)));
-			achievements.add(new Achievement(ImageIO.read(new File("test_achievement.png")), new Point(720, 490)));
-			achievements.add(new Achievement(ImageIO.read(new File("test_achievement.png")), new Point(720, 625)));
+			achievements.add(new Achievement(ImageIO.read(new File("Achievement 1.png")), new Point(440, 85)));
+			achievements.add(new Achievement(ImageIO.read(new File("Achievement 2.jpg")), new Point(440, 220)));
+			achievements.add(new Achievement(ImageIO.read(new File("Achievement 3.png")), new Point(440, 355)));
+			achievements.add(new Achievement(ImageIO.read(new File("Achievement 4.jpg")), new Point(440, 490)));
+			achievements.add(new Achievement(ImageIO.read(new File("Achievement 5.jpg")), new Point(440, 625)));
+			achievements.add(new Achievement(ImageIO.read(new File("Achievement 6.jpeg")), new Point(720, 85)));
+			achievements.add(new Achievement(ImageIO.read(new File("Achievement 7.jpg")), new Point(720, 220)));
+			achievements.add(new Achievement(ImageIO.read(new File("Achievement 8.jpg")), new Point(720, 355)));
+			achievements.add(new Achievement(ImageIO.read(new File("Achievement 9.jpg")), new Point(720, 490)));
+			achievements.add(new Achievement(ImageIO.read(new File("Achievement 10.jpg")), new Point(720, 625)));
 			
-			upgrades.add(new Upgrade(ImageIO.read(new File("test_upgrade.png")), new Point(1035, 85), 20));
-			upgrades.add(new Upgrade(ImageIO.read(new File("test_upgrade.png")), new Point(1035, 195), 20));
-			upgrades.add(new Upgrade(ImageIO.read(new File("test_upgrade.png")), new Point(1035, 305), 20));
-			upgrades.add(new Upgrade(ImageIO.read(new File("test_upgrade.png")), new Point(1035, 415), 20));
-			upgrades.add(new Upgrade(ImageIO.read(new File("test_upgrade.png")), new Point(1035, 525), 20));
-			upgrades.add(new Upgrade(ImageIO.read(new File("test_upgrade.png")), new Point(1035, 635), 20));
+			upgrades.add(new Upgrade(ImageIO.read(new File("Upgrade 1.jpg")), new Point(1035, 85), 20));
+			upgrades.add(new Upgrade(ImageIO.read(new File("Upgrade 2.jpg")), new Point(1035, 195), 20));
+			upgrades.add(new Upgrade(ImageIO.read(new File("Upgrade 3.jpg")), new Point(1035, 305), 20));
+			upgrades.add(new Upgrade(ImageIO.read(new File("Upgrade 4.jpg")), new Point(1035, 415), 20));
+			upgrades.add(new Upgrade(ImageIO.read(new File("Upgrade 5.jpg")), new Point(1035, 525), 20));
+			upgrades.add(new Upgrade(ImageIO.read(new File("Upgrade 6.jpg")), new Point(1035, 635), 20));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -123,11 +123,34 @@ public class Panel extends JPanel implements KeyListener, MouseListener, Runnabl
 				stats.setBitcoinsMax(bitcoins);
 			}
 			
-			if(stats.getSolved() == 1){
+			if(stats.getSolved() == 10){
 				achievements.get(0).setAchieved();
 			}
-			else if(stats.getSolved() == 5){
+			else if(stats.getSolved() == 50){
 				achievements.get(1).setAchieved();
+			}
+			else if(stats.getSolved() == 100){
+				achievements.get(2).setAchieved();
+			}
+			
+			if(stats.getBitcoinsMax() >= 100){
+				achievements.get(5).setAchieved();
+			}
+			else if(stats.getBitcoinsMax() >= 50){
+				achievements.get(4).setAchieved();
+			}
+			else if(stats.getBitcoinsMax() >= 10){
+				achievements.get(3).setAchieved();
+			}
+			
+			if(stats.getNodes() == 1){
+				achievements.get(6).setAchieved();
+			}
+			else if(stats.getNodes() == 10){
+				achievements.get(7).setAchieved();
+			}
+			else if(stats.getNodes() == 25){
+				achievements.get(8).setAchieved();
 			}
 			
 			try {

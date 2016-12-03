@@ -37,6 +37,10 @@ public class StatsTracker implements Drawable{
 		nodes++;
 	}
 	
+	public int getNodes(){
+		return nodes;
+	}
+	
 	public int getSolved(){
 		return solved;
 	}
