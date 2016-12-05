@@ -63,7 +63,7 @@ public class StatsTracker implements Drawable{
 		g.drawString("Max bitcoins stockpiled: " + bitcoinsMax, 450, 370);
 		
 		if(bitcoinsMax != 0)
-			avg = (double) solved/bitcoinsMax;
+			avg = (double) bitcoinsMax/solved;
 		else
 			avg = 0;
 		

@@ -24,6 +24,10 @@ public class Achievement implements Drawable{
 		achieved = true;
 	}
 	
+	public boolean isAchieved(){
+		return achieved;
+	}
+	
 	@Override
 	public void draw(Graphics g, Panel p) {
 		if(achieved){

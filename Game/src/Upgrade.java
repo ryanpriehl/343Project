@@ -21,6 +21,18 @@ public class Upgrade implements Drawable{
 		loc = p;
 		cost = c;
 	}
+	
+	public void setBought(){
+		bought = true;
+	}
+	
+	public boolean isBought(){
+		return bought;
+	}
+	
+	public int getCost(){
+		return cost;
+	}
 
 	@Override
 	public void draw(Graphics g, Panel p) {

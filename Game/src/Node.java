@@ -33,6 +33,10 @@ public class Node implements Drawable{
 		return health;
 	}
 	
+	public void addHealth(){
+		health++;
+	}
+	
 	public Point getLoc(){
 		return loc;
 	}
