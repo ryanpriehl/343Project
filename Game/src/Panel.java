@@ -231,37 +231,32 @@ public class Panel extends JPanel implements KeyListener, MouseListener, Runnabl
 			u.draw(g, this);
 		}
 
-		if (grid.gameOver() == 1) {
-			state = 3;
-			input = "";
-		} else if (grid.gameOver() == 2) {
-			state = 4;
-			input = "";
-		}
-
 		// what's displayed
 		if (state == 0) {
-			g.drawString("Bitcoins: " + bitcoins, 610, 150);
-			grid.draw(g, this);
+			if(grid.gameOver() == 1){
+				g.setFont(new Font("Arial", Font.BOLD, 60));
+				g.drawString("YOU WIN!", 550, 180);
+				try {
+					g.drawImage(ImageIO.read(new File("FeelsGoodMan.png")), 425, 250, this);
+				} catch (IOException e) {}
+			} 
+			else if(grid.gameOver() == 2){
+				g.setFont(new Font("Arial", Font.BOLD, 60));
+				g.drawString("YOU LOSE...", 530, 180);
+				try {
+					g.drawImage(ImageIO.read(new File("FeelsBadMan.png")), 430, 225, this);
+				} catch (IOException e) {}
+			}
+			else{
+				g.drawString("Bitcoins: " + bitcoins, 610, 150);
+				grid.draw(g, this);
+			}
+			
 		} else if (state == 1) {
 			stats.draw(g, this);
 		} else if (state == 2) {
 			for (Achievement a : achievements) {
 				a.draw(g, this);
-			}
-		} else if (state == 3) {
-			g.setFont(new Font("Arial", Font.BOLD, 60));
-			g.drawString("YOU WIN!", 550, 180);
-			try {
-				g.drawImage(ImageIO.read(new File("FeelsGoodMan.png")), 425, 250, this);
-			} catch (IOException e) {
-			}
-		} else if (state == 4) {
-			g.setFont(new Font("Arial", Font.BOLD, 60));
-			g.drawString("YOU LOSE...", 530, 180);
-			try {
-				g.drawImage(ImageIO.read(new File("FeelsBadMan.png")), 430, 225, this);
-			} catch (IOException e) {
 			}
 		}
 
@@ -359,7 +354,7 @@ public class Panel extends JPanel implements KeyListener, MouseListener, Runnabl
 		if (e.getKeyCode() == KeyEvent.VK_BACK_SPACE) {
 			if (input.length() >= 1)
 				input = input.substring(0, input.length() - 1);
-		} else if (Character.valueOf(e.getKeyChar()) instanceof Character) {
+		} else if (Character.valueOf(e.getKeyChar()) instanceof Character && grid.hasTarget() && grid.gameOver() == 0) {
 			input = input + Character.toUpperCase(e.getKeyChar());
 		}
 
